@@ -1,0 +1,43 @@
+{% extends 'configpanel/base.html' %}
+
+{% block content %}
+{% if type == "ch" %}
+        <div class="col-lg-12">
+                        <h1 class="page-header">Channel Editor</h1>
+    </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                        New Item
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                            <form method="POST" class="post-form">{% csrf_token %}
+                            {{ form.as_p }}
+                        <button type="submit" class="save btn btn-default">Save</button>
+                        </form>
+                        </div>
+                        </div>
+
+                </div>
+{%elif type == "devform" %}
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Device Editor</h1>
+    </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                        New Item
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                            <form method="POST" class="post-form">{% csrf_token %}
+                            {{ form.as_p }}
+                        <button type="submit" class="save btn btn-default">Save</button>
+                        </form>
+                        </div>
+                        </div>
+
+                </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <div class="col-lg-12">
+                        <h1 class="page-header">Blog Post</h1>
+    </div>
+                <div class="col-lg-12">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'post_new' %}"><span class="glyphicon glyphicon-new-window"></span></a>
+        {% endif %}
+       {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+                   </div>
+                         <div class="panel-body">
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+                    </div>
+
+                </div>
+{% endblock %}
