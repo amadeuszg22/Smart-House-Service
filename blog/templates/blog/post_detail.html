@@ -13,7 +13,8 @@
         {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <a class="btn btn-default" href="{% url 'post_new' %}"><span class="glyphicon glyphicon-new-window"></span></a>
-        {% endif %}
+        <a class="btn btn-default" href="{% url 'post_del' pk=post.pk %}"><span class="glyphicon glyphicon-minus"></span></a></td>
+                            {% endif %}
        {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
